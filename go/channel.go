@@ -153,7 +153,7 @@ func (ws *WsService) readMsg() {
 						ws.Logger.Println("reconnect success, continue read message")
 						continue
 					}
-					ws.Logger.Println("received message:", string(rawMsg))
+					ws.Logger.Println("received message:", string(rawMsg), ws.conf.Key)
 					var msg UpdateMsg
 					if err := json.Unmarshal(rawMsg, &msg); err != nil {
 						continue
